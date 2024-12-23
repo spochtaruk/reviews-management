@@ -13,11 +13,13 @@
     "@emotion/styled": "^11.14.0",
     "@nextui-org/react": "^2.6.8",
     "axios": "^1.7.9",
+    "framer-motion": "^11.15.0",
     "lodash": "^4.17.21",
     "next": "15.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
+    "react-toastify": "^11.0.2",
     "zustand": "^5.0.2"
   },
   "devDependencies": {
