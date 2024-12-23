@@ -15,3 +15,9 @@ export type CreateReviewDto = {
 };
 
 export type UpdateReviewDto = Partial<CreateReviewDto>;
+
+export type ReviewFilters = {
+  author?: string;
+  rating?: number | null;
+  search?: string;
+};
