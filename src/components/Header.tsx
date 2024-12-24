@@ -22,7 +22,7 @@ const Header: React.FC = () => {
         if (error instanceof AxiosError) {
           toast.error(error.response?.data?.message || "Error fetching user");
         } else {
-          toast.error("Error fetching user: " + error);
+          console.warn("Error fetching user: " + error);
         }
       }
     };

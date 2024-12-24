@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Input, Button, Select, SelectItem } from "@nextui-org/react";
 import { useDashboardReviews } from "@/hooks";
 import { stars } from "@/constants";
@@ -10,6 +9,7 @@ const FiltersSection = () => {
   const {
     filters,
     authors,
+    searchInput,
     handleSearchChange,
     handleAuthorChange,
     handleRatingChange,
@@ -18,13 +18,13 @@ const FiltersSection = () => {
   } = useDashboardReviews();
 
   return (
-    <motion.div className="flex flex-col gap-4 mb-6">
+    <div className="flex flex-col gap-4 mb-6">
       <div className="w-full">
         <Input
           placeholder="Search by title"
           onChange={(e) => handleSearchChange(e.target.value)}
           type="search"
-          value={filters.search}
+          value={searchInput}
           className="w-full"
         />
       </div>
@@ -52,7 +52,7 @@ const FiltersSection = () => {
           >
             {stars.map((star) => (
               <SelectItem key={star} value={star}>
-                <span className="text-yellow-500">{"★".repeat(+star)}</span>
+                {"★".repeat(+star)}
               </SelectItem>
             ))}
           </Select>
@@ -74,7 +74,7 @@ const FiltersSection = () => {
           </Link>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

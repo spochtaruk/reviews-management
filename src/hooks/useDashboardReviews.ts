@@ -16,6 +16,7 @@ type UseDashboardReviewsReturnType = {
   page: number;
   loading: boolean;
   authors: string[];
+  searchInput: string | undefined;
   handleSearchChange: (value: string) => void;
   handleAuthorChange: (value: string) => void;
   handleRatingChange: (value: number) => void;
@@ -38,6 +39,7 @@ export const useDashboardReviews = (): UseDashboardReviewsReturnType => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [authorsLoaded, setAuthorsLoaded] = useState(false);
+  const [searchInput, setSearchInput] = useState(filters.search);
 
   const loadReviews = async () => {
     setLoading(true);
@@ -82,10 +84,15 @@ export const useDashboardReviews = (): UseDashboardReviewsReturnType => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters, page]);
 
-  const handleSearchChange = debounce((value: string) => {
-    setFilters({ search: value });
+  const handleSearchChangeDebounced = debounce((value: string) => {
+    setFilters({ ...filters, search: value });
     setPage(1);
   }, 300);
+
+  const handleSearchChange = (value: string) => {
+    setSearchInput(value);
+    handleSearchChangeDebounced(value);
+  };
 
   const handleAuthorChange = (value: string) => {
     setFilters({ author: value });
@@ -125,6 +132,7 @@ export const useDashboardReviews = (): UseDashboardReviewsReturnType => {
     page,
     loading,
     authors,
+    searchInput,
     setPage,
     handleSearchChange,
     handleAuthorChange,
