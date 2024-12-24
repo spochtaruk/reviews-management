@@ -9,7 +9,7 @@ import { login, register } from "@/services/authService";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { validationSchema } from "./validation";
+import { registerValidationSchema, loginValidationSchema } from "./validation";
 
 type AuthFormProps = {
   type: "login" | "register";
@@ -21,7 +21,9 @@ function AuthForm({ type }: AuthFormProps) {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(validationSchema),
+    resolver: yupResolver(
+      type === "register" ? registerValidationSchema : loginValidationSchema
+    ),
   });
 
   const router = useRouter();
