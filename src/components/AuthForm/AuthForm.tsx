@@ -8,6 +8,7 @@ import { AxiosError } from "axios";
 import { login, register } from "@/services/authService";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const validationSchema = Yup.object({
   username: Yup.string().required("Please enter a valid username"),
@@ -104,6 +105,27 @@ function AuthForm({ type }: AuthFormProps) {
       <Button color="primary" type="submit" className="w-full">
         {type === "register" ? "Register" : "Login"}
       </Button>
+      <div className="text-center">
+        {type === "login" ? (
+          <p>
+            Don&apos;t have an account?
+            <Link href="/auth/register">
+              <Button className="text-blue-500 p-0 ml-3" variant="light">
+                Register
+              </Button>
+            </Link>
+          </p>
+        ) : (
+          <p>
+            Already have an account?
+            <Link href="/auth/login">
+              <Button className="text-blue-500 p-0 ml-3" variant="light">
+                Login
+              </Button>
+            </Link>
+          </p>
+        )}
+      </div>
     </Form>
   );
 }
