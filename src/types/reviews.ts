@@ -21,3 +21,10 @@ export type ReviewFilters = {
   rating?: number | null;
   search?: string;
 };
+
+export type ReviewFormValues = {
+  title: string;
+  content: string;
+  rating: number;
+  author: string;
+};

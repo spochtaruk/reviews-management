@@ -51,7 +51,7 @@ const FiltersSection = () => {
           >
             {stars.map((star) => (
               <SelectItem key={star} value={star}>
-                {star}
+                <span className="text-yellow-500">{"★".repeat(+star)}</span>
               </SelectItem>
             ))}
           </Select>
@@ -66,7 +66,7 @@ const FiltersSection = () => {
         </div>
 
         <div className="flex-1 min-w-[150px] md:w-auto">
-          <Link href="/review/new">
+          <Link href="/review">
             <Button className="w-full md:w-auto" color="primary">
               Add Review
             </Button>
