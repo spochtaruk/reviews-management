@@ -1,5 +1,3 @@
-// useDashboardReviews.ts
-
 import { useState, useEffect } from "react";
 import {
   fetchReviews,
@@ -112,8 +110,10 @@ export const useDashboardReviews = (): UseDashboardReviewsReturnType => {
           reviews.filter((review) => review.id !== id),
           totalPages
         );
+        toast.success("Review deleted successfully!");
       } catch (error) {
         console.error("Failed to delete review", error);
+        toast.error("Failed to delete review");
       }
     }
   };
