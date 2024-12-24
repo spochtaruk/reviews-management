@@ -1,8 +1,9 @@
+import { User } from "@/types";
 import { create } from "zustand";
 
 type UserState = {
-  user: { username: string; userId: string } | null;
-  setUser: (user: { username: string; userId: string }) => void;
+  user: User | null;
+  setUser: (user: User) => void;
   clearUser: () => void;
 };
 

@@ -15,6 +15,7 @@ apiInstance.interceptors.response.use(
 
     if (response && response.status === 401) {
       clearUser();
+      localStorage.removeItem("accessToken");
       router.push("/auth/login");
     }
     return Promise.reject(error);
