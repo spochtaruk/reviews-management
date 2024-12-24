@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Input, Button, Select, SelectItem } from "@nextui-org/react";
 import { useDashboardReviews } from "@/hooks";
 import { stars } from "@/constants";
@@ -17,7 +18,7 @@ const FiltersSection = () => {
   } = useDashboardReviews();
 
   return (
-    <div className="flex flex-col gap-4 mb-6">
+    <motion.div className="flex flex-col gap-4 mb-6">
       <div className="w-full">
         <Input
           placeholder="Search by title"
@@ -73,7 +74,7 @@ const FiltersSection = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

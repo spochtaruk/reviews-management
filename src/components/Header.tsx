@@ -45,14 +45,18 @@ const Header: React.FC = () => {
   if (currentPath === "/auth/login" || currentPath === "/auth/register") {
     return (
       <header className="flex justify-center items-center p-4 bg-gray-800 text-white">
-        <div className="text-2xl font-semibold">Reviews</div>
+        <Link href="/">
+          <div className="text-2xl font-semibold">Reviews</div>
+        </Link>
       </header>
     );
   }
 
   return (
     <header className="flex justify-between items-center p-4 bg-gray-800 text-white">
-      <div className="text-2xl font-semibold">Reviews</div>
+      <Link href="/">
+        <div className="text-2xl font-semibold">Reviews</div>
+      </Link>
 
       <div className="flex items-center gap-4">
         {!user ? (
