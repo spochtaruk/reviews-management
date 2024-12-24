@@ -3,19 +3,13 @@ import React from "react";
 import { Form, Input, Button } from "@nextui-org/react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
+
 import { AxiosError } from "axios";
 import { login, register } from "@/services/authService";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-
-const validationSchema = Yup.object({
-  username: Yup.string().required("Please enter a valid username"),
-  password: Yup.string()
-    .required("Please enter a valid password")
-    .min(6, "Password must be at least 6 characters"),
-});
+import { validationSchema } from "./validation";
 
 type AuthFormProps = {
   type: "login" | "register";
