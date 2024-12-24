@@ -6,8 +6,6 @@ export const fetchReviews = async (
   skip: number = 0,
   filters: { author?: string; rating?: number; search?: string } = {}
 ): Promise<{ reviews: Review[]; totalPages: number }> => {
-  console.log(filters);
-
   const response = await api.get<{ reviews: Review[]; totalPages: number }>(
     "/reviews",
     {
